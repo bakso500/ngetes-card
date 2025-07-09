@@ -4,86 +4,150 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>For Gizella 💌</title>
-</head>
-<body style="margin:0; font-family:Arial, sans-serif; height:100dvh; overflow:hidden; display:flex; align-items:center; justify-content:center; position:relative;">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  <!-- VIDEO BACKGROUND -->
-  <video id="bgVideo" autoplay muted loop playsinline style="
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
-  ">
-    <source src="video.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: black;
+    }
 
-  <!-- GREETING CARD -->
-  <div id="greetingCard" style="
-    background: rgba(255,255,255,0.9);
-    border-radius: 20px;
-    padding: 20px;
-    width: 90%;
-    max-width: 360px;
-    text-align: left;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    border: 3px solid #ff99c8;
-    z-index: 2;
-    overflow-y: auto;
-    max-height: 80vh;
-  ">
-    <div style="font-size:32px; color:#ff4d6d; margin-bottom:10px; text-align:center;">❤️</div>
-    <h1 style="margin: 0 0 10px; color:#ff4d6d; font-size:22px; text-align:center;">For Gizella</h1>
+    #bgVideo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -2;
+      opacity: 0.6;
+    }
 
-    <p style="font-size:15px; color:#444; line-height:1.6;">
-      <!-- 👉 Isi ucapan panjangmu di sini -->
-      Dear Zell, <br><br>
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.06);
+      z-index: -1;
+    }
 
-      I just wanted to take a moment to let you know how much you mean to me. You light up my days in ways I never thought possible. Your smile, your laugh, the way you look at me — everything about you fills my heart with warmth. <br><br>
+    #greetingCard {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 16px;
+      padding: 16px;
+      width: 90%;
+      max-width: 350px;
+      text-align: left;
+      border: 1.5px solid #ffcde0;
+      z-index: 2;
+      overflow-y: auto;
+      max-height: 82vh;
+    }
 
-      This card might not be enough to hold all the words I wish I could say to you, but just know: I'm always cheering you on, loving you endlessly, and so thankful for every second we spend together. <br><br>
+    #greetingCard h1 {
+      margin: 0 0 10px;
+      color: #ff4d6d;
+      font-size: 20px;
+      text-align: center;
+    }
 
-      Happy birthday, happy love day, or just... happy "you" day. Because you being you is more than enough reason to celebrate. 💖
-    </p>
+    #greetingCard p {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.6;
+    }
 
-    <button onclick="closePopup()" style="
+    .heart {
+      font-size: 28px;
+      color: #ff4d6d;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .close-btn {
       margin-top: 15px;
-      padding: 10px 20px;
+      padding: 8px 16px;
       background: #ff4d6d;
       color: white;
       border: none;
-      border-radius: 10px;
-      font-size: 14px;
+      border-radius: 8px;
+      font-size: 13px;
       cursor: pointer;
       display: block;
       margin-left: auto;
       margin-right: auto;
-    ">Close</button>
-  </div>
-
-  <!-- UNMUTE BUTTON -->
-  <button onclick="unmuteVideo()" style="
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 3;
-    background: #ff99c8;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 10px;
-    font-size: 14px;
-    cursor: pointer;
-  ">🔊 Play Sound</button>
-
-  <script>
-    function closePopup() {
-      document.getElementById("greetingCard").style.display = "none";
     }
 
+    .sound-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 3;
+      background: #ff99c8;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 380px) {
+      #greetingCard {
+        padding: 14px;
+        max-width: 92%;
+      }
+
+      #greetingCard p {
+        font-size: 13px;
+      }
+
+      .close-btn {
+        font-size: 12px;
+        padding: 7px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <video id="bgVideo" autoplay muted loop playsinline>
+    <source src="video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="overlay"></div>
+
+  <div id="greetingCard">
+    <div class="heart">❤</div>
+    <h1>For Gizella</h1>
+    <p>
+      Dear Zell, <br><br>
+      I just wanted to take a moment to let you know how much you mean to me. You light up my days in ways I never thought possible. Your smile, your laugh, the way you look at me — everything about you fills my heart with warmth. <br><br>
+      This card might not be enough to hold all the words I wish I could say to you, but just know: I'm always cheering you on, loving you endlessly, and so thankful for every second we spend together. <br><br>
+      Happy birthday, happy love day, or just... happy "you" day. Because you being you is more than enough reason to celebrate. 💖
+    </p>
+    <button class="close-btn" onclick="document.getElementById('greetingCard').style.display = 'none'">
+      Close
+    </button>
+  </div>
+
+  <button class="sound-btn" onclick="unmuteVideo()">🔊 Play Sound</button>
+
+  <script>
     function unmuteVideo() {
       const video = document.getElementById("bgVideo");
       video.muted = false;
