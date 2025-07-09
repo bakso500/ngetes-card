@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gizella</title>
+  <title>For Gizella 💌</title>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+
     html, body {
       height: 100%;
       font-family: Arial, sans-serif;
@@ -29,24 +30,35 @@
       width: 100vw;
       height: 100vh;
       object-fit: cover;
-      z-index: -1;
+      z-index: -2;
       opacity: 0.6;
+    }
+
+    /* OVERLAY layer putih bening */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.08);
+      z-index: -1;
     }
 
     /* GREETING CARD */
     #greetingCard {
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.85);
       border-radius: 20px;
       padding: 20px;
       width: 90%;
       max-width: 380px;
       text-align: left;
-      box-shadow: none;
       border: 2px solid #ffcde0;
       z-index: 2;
       overflow-y: auto;
       max-height: 80vh;
-      backdrop-filter: blur(3px);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
     }
 
     #greetingCard h1 {
@@ -69,10 +81,6 @@
       text-align: center;
     }
 
-    button {
-      cursor: pointer;
-    }
-
     .close-btn {
       margin-top: 15px;
       padding: 10px 20px;
@@ -81,6 +89,7 @@
       border: none;
       border-radius: 10px;
       font-size: 14px;
+      cursor: pointer;
       display: block;
       margin-left: auto;
       margin-right: auto;
@@ -91,12 +100,13 @@
       bottom: 20px;
       left: 20px;
       z-index: 3;
-      background: #ffc2d1;
+      background: #ff99c8;
       color: white;
       border: none;
       padding: 10px 15px;
       border-radius: 10px;
       font-size: 14px;
+      cursor: pointer;
     }
 
     @media (max-width: 400px) {
@@ -114,6 +124,9 @@
     <source src="video.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
+
+  <!-- OVERLAY agar blur & video gak ganggu -->
+  <div class="overlay"></div>
 
   <!-- GREETING CARD -->
   <div id="greetingCard">
