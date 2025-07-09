@@ -24,23 +24,23 @@
 
   <!-- GREETING CARD -->
   <div id="greetingCard" style="
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border-radius: 16px;
-    padding: 16px;
+    background: rgba(255,255,255,0.83);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 14px;
+    padding: 14px;
     width: 92%;
-    max-width: 310px;
+    max-width: 270px;
     text-align: left;
-    border: 1px solid rgba(255, 153, 200, 0.2); /* super transparan pink */
+    border: 0.5px solid rgba(255, 153, 200, 0.1); /* pink pastel super soft */
     z-index: 2;
     overflow-y: auto;
-    max-height: 82vh;
+    max-height: 80vh;
   ">
-    <div style="font-size:28px; color:#ff4d6d; margin-bottom:10px; text-align:center;">❤</div>
-    <h1 style="margin: 0 0 10px; color:#ff4d6d; font-size:20px; text-align:center;">For Gizella</h1>
+    <div style="font-size:24px; color:#ff4d6d; margin-bottom:8px; text-align:center;">❤</div>
+    <h1 style="margin: 0 0 8px; color:#ff4d6d; font-size:18px; text-align:center;">For Gizella</h1>
 
-    <p style="font-size:14px; color:#444; line-height:1.6;">
+    <p style="font-size:13px; color:#444; line-height:1.5;">
       Dear Zell, <br><br>
       I just wanted to take a moment to let you know how much you mean to me. You light up my days in ways I never thought possible. Your smile, your laugh, the way you look at me — everything about you fills my heart with warmth. <br><br>
       This card might not be enough to hold all the words I wish I could say to you, but just know: I'm always cheering you on, loving you endlessly, and so thankful for every second we spend together. <br><br>
@@ -48,13 +48,13 @@
     </p>
 
     <button onclick="closePopup()" style="
-      margin-top: 15px;
-      padding: 8px 16px;
+      margin-top: 14px;
+      padding: 7px 14px;
       background: #ff4d6d;
       color: white;
       border: none;
-      border-radius: 8px;
-      font-size: 13px;
+      border-radius: 7px;
+      font-size: 12px;
       cursor: pointer;
       display: block;
       margin-left: auto;
@@ -65,15 +65,15 @@
   <!-- UNMUTE BUTTON -->
   <button onclick="unmuteVideo()" style="
     position: fixed;
-    bottom: 20px;
-    left: 20px;
+    bottom: 18px;
+    left: 18px;
     z-index: 3;
     background: #ff99c8;
     color: white;
     border: none;
-    padding: 10px 15px;
-    border-radius: 10px;
-    font-size: 14px;
+    padding: 8px 13px;
+    border-radius: 8px;
+    font-size: 13px;
     cursor: pointer;
   ">🔊 Play Sound</button>
 
@@ -84,10 +84,3 @@
 
     function unmuteVideo() {
       const video = document.getElementById("bgVideo");
-      video.muted = false;
-      video.play();
-    }
-  </script>
-
-</body>
-</html>
